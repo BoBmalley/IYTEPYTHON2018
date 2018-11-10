@@ -1,11 +1,13 @@
 #A6
-rehber=open('C:/Users/PC/Desktop/rehber.txt','r+')
-with open('rehber.txt') as f:
-  d = dict(x.rstrip().split(None, 1) for x in f)
-isim=input('Bir isim giriniz')
+rehber=open('C:/Users/PC/Desktop/rehber.txt','r')
+lines = rehber.read().split(',')
+isim=input('Bir isim giriniz...')
 isim=isim.capitalize()
-soyisim=input('Bir soyisim giriniz')
+soyisim=input('Bir soyisim giriniz...')
 soyisim=soyisim.capitalize()
 kisi=isim+' '+soyisim
-if kisi in open ('rehber.txt').read():
-        print(rehber.get('kisi'))
+if kisi in lines:
+        numarası=lines.index(kisi)+1
+        print(kisi+" adlı kişinin numarası="+lines[numarası])
+else:
+        print("Böyle bir kişi rehberde yoktur...")
